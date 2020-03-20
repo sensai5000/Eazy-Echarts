@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142958101-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-142958101-1');
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KR65X7M');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <title>Eazy-ECharts</title>
+  <link rel="shortcut icon" type="image/x-icon" sizes="32x32" href="eazyEFavicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,300i,400,400i,500,500i,700,700i&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"  rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css'>
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,400,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KR65X7M"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+<div class="header">
+  <h4 class="pageTitle">Eazy-ECharts</h4>
+  <i class="material-icons-outlined material-icons md-light" id="infoIcon">info_outline</i>
+  <div>
+    <p class="subTitle">Real Data Workflow for Designers</p>
+  </div>
+  <br>
+  <br>
+  <div>
+    <label for="width">WIDTH</label>
+    <input type="text" id="userInput2" placeholder="320" />
+    <button class="inputButton" onClick="changeWidth()" id ="widthButton">+</button>
+  </div>
+  <br>
+<div>
+    <label for="height">HEIGHT</label>
+    <input type="text" id="userInput" placeholder="247">
+  <button class="inputButton" onClick="changeHeight()" id="heightButton">+</button>
+  </div>
+  <br>
+<hr class="rule">
+<div class="selector">
+  <label for="chartTheme">THEME</label>
+  <select id="chartTheme">
+    <option value="rotorCore">Rotor Core</option>
+    <option value="rotorCollins">Rotor Collins</option>
+    <option value="rotorPW">Rotor Pratt & Whitney</option>
+    <option value="rotorOtis">Rotor Otis</option>
+  </select>
+</div>
+<br>
+  <div class="selector">
+    <label for="chartMode">MODE</label>
+    <select id="chartMode" >
+      <option value="coreLight">Light</option>
+      <option value="#1f1f1f">Gray 900</option>
+      <option value="#000000">Dark</option>
+    </select>
+  </div>
+  <br>
+  <div>
+ <label for="gridType">GRID TYPE</label>
+    <select id="gridType">
+      <option value="fullGrid">Full Grid</option>
+      <option value="horizontalGrid">Horizontal Grid</option>
+      <option value="verticalGrid">Vertical Grid</option>
+      <option value="noGrid">None</option>
+    </select>
+
+  </div>
+  <br>
+  <div>
+   <label for="colorPalette">COLOR PALETTE</label>
+      <select id="colorPalette">
+        <option value="generalPalette">Accessibility Palette</option>
+        <option value="brandPalette">Brand Palette</option>
+        <option value="graduatedBrandPaletteAccentOne">Graduated Brand Palette : Accent 1</option>
+        <option value="graduatedBrandPaletteAccentTwo">Graduated Brand Palette : Accent 2</option>
+        <option value="graduatedBrandPaletteAccentThree">Graduated Brand Palette : Accent 3</option>
+        <option value="graduatedBrandPaletteAccentAltOne">Graduated Brand Palette : Accent Alt 1</option>
+        <option value="graduatedBrandPaletteAccentAltTwo">Graduated Brand Palette : Accent Alt 2</option>
+      </select>
+    </div>
+    <br>
+  <div>
+ <label for="inputText">CHART TYPE</label>
+    <!--<select id="graphType">
+      <option value="lineChart">Line Chart</option>
+      <option value="areaChart">Area Chart</option>
+      <option value="stackedAreaChart">Stacked Area Chart</option>
+      <option value="columnChart">Column Chart</option>
+      <option value="stackedColumnChart">Stacked Column Chart</option>
+      <option value="columnLineChart">Column + Line Chart</option>
+      <option value="barChart">Bar Chart</option>
+      <option value="stackedBarChart">Stacked Bar Chart</option>
+      <option value="scatterChart">Scatter Plot</option>
+      <option value="pieChart">Pie Chart</option>
+      <option value="donutChart">Donut Chart</option>
+      <option value="thinDonutChart">Thin Donut Chart</option>
+    </select>-->
+    <input id="inputText" value="Line Chart" readonly="readonly">
+  </div>
+  <br>
+  <div id="switchHolder">
+      <label for="switchOne" class="switchLabel">SHOW LABELS</label>
+    <label class="switch">
+      <input type="checkbox" id="switchOne">
+      <span class="slider round"></span>
+</label>
+  </div>
+  <div id="switchHolderTwo">
+      <label for="switchTwo" class="switchLabel">SHOW BORDERS</label>
+    <label class="switch">
+      <input type="checkbox" id="switchTwo">
+      <span class="slider round"></span>
+</label>
+  </div>
+  <button id="renderButton" onclick="" class="renderButton">Render Chart</button>
+</div>
+
+
+<div id="body">
+  <div class="bodyBlock">
+     <h5 class="dataLabel">Data Set</h5>
+  <textarea id="textarea"></textarea>
+  </div>
+ <div id="main" >Your chart will appear here</div>
+</div>
+
+
+<div id="selectModal">
+
+    <input type="radio" name="graphType" id="lineChart" class="input-hidden" value="Line Chart" onclick="graphTypePicker(this.value)"/>
+    <label for="lineChart">
+    <img src="https://github.dx.utc.com/KIRKTAYL/Eazy-ECharts/blob/master/Test3.png?raw=true" height="115px" width="168px" style="; "/>
+    </label>
+
+    <input type="radio" name="graphType" id="areaChart" class="input-hidden" value="Area Chart" onclick="graphTypePicker(this.value)" />
+    <label for="areaChart">
+    <img src="https://github.dx.utc.com/KIRKTAYL/Eazy-ECharts/blob/master/Area%20Chart.png?raw=true" height="115px" width="168px" style=""/>
+    </label>
+
+    <input type="radio" name="graphType" id="stackedAreaChart" class="input-hidden" value="Stacked Area Chart" onclick="graphTypePicker(this.value)" />
+    <label for="stackedAreaChart">
+    <img src="https://github.dx.utc.com/KIRKTAYL/Eazy-ECharts/blob/master/Stacked%20Area.png?raw=true" height="115px" width="168px" style=""/>
+    </label>
+
+    <input type="radio" name="graphType" id="columnChart" class="input-hidden" value="Column Chart" onclick="graphTypePicker(this.value)" />
+    <label for="columnChart">
+    <img src="https://github.dx.utc.com/KIRKTAYL/Eazy-ECharts/blob/master/Column%20Chart.png?raw=true" height="115px" width="168px" style=" "/>
+    </label>
+
+    <input type="radio" name="graphType" id="stackedColumnChart" class="input-hidden" value="Stacked Column Chart" onclick="graphTypePicker(this.value)" />
+    <label for="stackedColumnChart">
+    <img src="https://github.dx.utc.com/KIRKTAYL/Eazy-ECharts/blob/master/Stacked%20Column%20Chart.png?raw=true" height="115px" width="168px" style=""/>
+    </label>
+
+    <input type="radio" name="graphType" id="columnLineChart" class="input-hidden" value="Column + Line Chart" onclick="graphTypePicker(this.value)" />
+    <label for="columnLineChart">
+    <img src="https://github.dx.utc.com/KIRKTAYL/Eazy-ECharts/blob/master/ColumnLineChart.png?raw=true" height="115px" width="168px" style=""/>
+    </label>
+
+    <input type="radio" name="graphType" id="barChart" class="input-hidden" value="Bar Chart" onclick="graphTypePicker(this.value)" />
+    <label for="barChart">
+    <img src="https://github.dx.utc.com/KIRKTAYL/Eazy-ECharts/blob/master/Bar%20Chart.png?raw=true" height="115px" width="168px" style=""/>
+    </label>
+
+    <input type="radio" name="graphType" id="stackedBarChart" class="input-hidden" value="Stacked Bar Chart" onclick="graphTypePicker(this.value)" />
+    <label for="stackedBarChart">
+    <img src="https://github.dx.utc.com/KIRKTAYL/Eazy-ECharts/blob/master/Stacked%20Bar%20Chart.png?raw=true" height="115px" width="168px" style=""/>
+    </label>
+
+    <input type="radio" name="graphType" id="scatterPlot" class="input-hidden" value="Scatter Plot" onclick="graphTypePicker(this.value)" />
+    <label for="scatterPlot">
+    <img src="https://github.dx.utc.com/KIRKTAYL/Eazy-ECharts/blob/master/Scatter%20Plot.png?raw=true" height="115px" width="168px" style=""/>
+    </label>
+
+    <input type="radio" name="graphType" id="pieChart" class="input-hidden" value="Pie Chart" onclick="graphTypePicker(this.value)" />
+    <label for="pieChart">
+    <img src="https://github.dx.utc.com/KIRKTAYL/Eazy-ECharts/blob/master/Pie%20Chart.png?raw=true" height="115px" width="168px" style=""/>
+    </label>
+
+    <input type="radio" name="graphType" id="DonutChart" class="input-hidden" value="Donut Chart" onclick="graphTypePicker(this.value)" />
+    <label for="DonutChart">
+    <img src="https://github.dx.utc.com/KIRKTAYL/Eazy-ECharts/blob/master/Thick%20Donut%20Chart.png?raw=true" height="115px" width="168px" style=""/>
+    </label>
+
+     <input type="radio" name="graphType" id="thinDonutChart" class="input-hidden" value="Thin Donut Chart" onclick="graphTypePicker(this.value)" />
+    <label for="thinDonutChart">
+    <img src="https://github.dx.utc.com/KIRKTAYL/Eazy-ECharts/blob/master/Thin%20Donut%20Chart.png?raw=true" height="115px" width="168px" style=""/>
+    </label>
+  </div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close"><i class="material-icons-outlined material-icons" id="closeButton">close</i></span>
+    <h3 class="modalTitle">Chart Configuration Instructions</h3>
+    <div class="modalBody">
+      <p class="modalSectionBodyCopy" style="font-style:italic;font-weight:500;color:#666666;">DISCLAIMER: This tool is built and maintained by the <a href="https://rotor.dx.utc.com" target="_blank"> Rotor</a> Design Team, and was built for the sole purpose of getting real data backed charts into designs. This tool is built with <a href="https://echarts.apache.org/en/index.html" target="blank_">ECharts</a>.</p>
+      <br>
+      <br>
+    <h4 class="modalSectionTitle">Height & Width</h4>
+    <p class="modalSectionBodyCopy">Height and Width must be selected prior to rendering your chart. If you need to change these settings after rendering your chart, you will need to refresh your page and begin setting the properties again.</p>
+    <br>
+    <br>
+    <h4 class="modalSectionTitle">Modes</h4>
+    <p class="modalSectionBodyCopy">Rotor offers 3 color mode variations ( <span class="dot1">○</span> Light, <span class="dot2">●</span> Gray 900, <span class="dot3">●</span> Dark). The mode can be changed at any time, but you will need to re-render your chart in order to apply all of the changes.</p>
+    <br>
+    <br>
+    <h4 class="modalSectionTitle">Grid Type</h4>
+    <p class="modalSectionBodyCopy">Rotor offers 4 options for rendering a grid in your chart (Full, Horizontal, Vertical, and None). The usage of each will depend on your given context, the granualarity of data presentation needed, and the type of data being presented.</p>
+    <br>
+    <br>
+    <h4 class="modalSectionTitle">Color Palettes</h4>
+    <p class="modalSectionBodyCopy">Rotor offers 3 main color palettes (General, Brand, and Graduated Brand). The Graduated Brand Palette is offered in 5 accent colors. Please refer to the Rotor Charts Documentation for advice on color usage, and for help in determining which color palette is most appropriate for your application. The color palette can be changed at any time, but you will need to re-render your chart in order to apply all of the changes. </p>
+    <br>
+    <br>
+    <h4 class="modalSectionTitle">Chart Types</h4>
+    <p class="modalSectionBodyCopy">This tool currently offers 12 chart types (Line, Column, Stacked Column, Column + Line, Bar, Stacked Bar, Area, Stacked Area, Scatter Plot, Pie, Donut, and Thin Donut). The Rotor team will be adding new chart types to this tool over time, so stay tuned for updates.</p>
+    <br>
+    <br>
+    <h4 class="modalSectionTitle">Data Sets</h4>
+    <p class="modalSectionBodyCopy">This tool comes prepopulated with a few data sets. You can edit these data sets as you see fit. As long as you keep the formatting the same, the charts should be able to accomodate more or less data points. The first set of 'Categories' correspond to each sequential value in each data set. You must have the same number of 'Categories' as unique data points in any given data set. Having more data points than 'Categories' will cause data to be drawn outside the bounds of the chart, and having fewer data points than 'Categories' will cause a blank spot in your chart. Play with the values and see how the chart changes to develop a deeper understanding of what is possible.</p>
+  </div>
+</div>
+</div>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/echarts/4.0.4/echarts.js'></script>
+
+
+
+
+    <script  src="./script.js"></script>
+
+
+
+
+</body>
+
+</html>
