@@ -1895,3 +1895,10 @@ $( document ).ready(function() {
 $('#inputText').click(function(){
     $('#selectModal').css('visibility','visible');
 });
+
+window.onresize = function() {
+            $(".charts").each(function(){
+                var id = $(this).attr('_echarts_instance_');
+                window.echarts.getInstanceById(id).resize();
+            });
+        };
